@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to LithinAdari's portfolio. Full-stack developer specializing in AI, web development, and machine learning projects.">
+    <meta name="keywords" content="developer, AI, machine learning, web development, Python, JavaScript">
+    <meta name="author" content="LithinAdari">
+    <title>LithinAdari - Full Stack Developer | AI & Web Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #1a73e8;
+            --accent-color: #34a853;
+            --dark-bg: #0f1419;
+            --light-text: #e0e0e0;
+            --card-bg: #1e1e2e;
+            --border-color: #2d2d44;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1f2e 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 115, 232, 0.1), transparent);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(52, 168, 83, 0.1), transparent);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(26, 115, 232, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 115, 232, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 115, 232, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .project-language {
+            background: rgba(26, 115, 232, 0.1);
+            color: var(--secondary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--accent-color);
+            gap: 0.8rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            margin: 3rem 0;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: #a0a0a0;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #a0a0a0;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: #808080;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero::before, .hero::after {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .project-card {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">LithinAdari</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>LithinAdari</h1>
+            <p class="subtitle">Full Stack Developer | AI Enthusiast | Machine Learning Engineer</p>
+            <p class="tagline">Building intelligent solutions with Python, JavaScript, and modern web technologies. Passionate about AI-driven applications and seamless user experiences.</p>
+            
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/LithinAdari" title="GitHub" target="_blank">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="currentColor">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.603-3.369-1.343-3.369-1.343-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.547 2.914 1.186.092-.923.35-1.547.636-1.903-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.14 20.164 22 16.416 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/lithin-adari/" title="LinkedIn" target="_blank">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="currentColor">
+                        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+                    </svg>
+                </a>
+                <a href="mailto:lithin.adari@example.com" title="Email">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">AI Trading Assistance</div>
+                    <span class="project-language">Python</span>
+                </div>
+                <p class="project-description">Intelligent trading system with AI-powered analysis and real-time market assistance. Advanced algorithms for decision support in financial markets.</p>
+                <div class="project-links">
+                    <a href="https://github.com/LithinAdari/AI-Trading-Assistance" class="project-link" target="_blank">
+                        View Code →
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Image Captioning</div>
+                    <span class="project-language">Python</span>
+                </div>
+                <p class="project-description">Machine learning model that generates descriptive captions for images using deep learning techniques. Computer vision and NLP integration.</p>
+                <div class="project-links">
+                    <a href="https://github.com/LithinAdari/ImageCaptioning" class="project-link" target="_blank">
+                        View Code →
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Face Verification</div>
+                    <span class="project-language">Python</span>
+                </div>
+                <p class="project-description">Open-set face verification system using deep learning. Advanced facial recognition for security and authentication applications.</p>
+                <div class="project-links">
+                    <a href="https://github.com/LithinAdari/Openset-Face-Verification" class="project-link" target="_blank">
+                        View Code →
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Weather App</div>
+                    <span class="project-language">JavaScript</span>
+                </div>
+                <p class="project-description">Real-time weather application with live updates and detailed forecasts. Responsive frontend with API integration for accurate weather data.</p>
+                <div class="project-links">
+                    <a href="https://github.com/LithinAdari/Weather-App" class="project-link" target="_blank">
+                        View Code →
+                    </a>
+                    <a href="https://weather-app-xi-five-96.vercel.app" class="project-link" target="_blank">
+                        Live Demo →
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Shopping Cart</div>
+                    <span class="project-language">JavaScript</span>
+                </div>
+                <p class="project-description">Full-featured e-commerce shopping cart application. Dynamic product management and seamless checkout experience.</p>
+                <div class="project-links">
+                    <a href="https://github.com/LithinAdari/Shopping-cart" class="project-link" target="_blank">
+                        View Code →
+                    </a>
+                    <a href="https://shopping-cart-theta-six.vercel.app" class="project-link" target="_blank">
+                        Live Demo →
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Voting System</div>
+                    <span class="project-language">JavaScript</span>
+                </div>
+                <p class="project-description">Interactive voting platform with real-time results and user authentication. Secure voting mechanism with modern UI.</p>
+                <div class="project-links">
+                    <a href="https://github.com/LithinAdari/Voting" class="project-link" target="_blank">
+                        View Code →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="color: #a0a0a0; margin-bottom: 1.5rem;">And more on my GitHub profile...</p>
+            <a href="https://github.com/LithinAdari" class="btn btn-primary" target="_blank">View All Projects</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="skills-container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                        <li>Shell/Bash</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Deep Learning</li>
+                        <li>Computer Vision</li>
+                        <li>NLP</li>
+                        <li>Neural Networks</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
+                        <li>Frontend Development</li>
+                        <li>Responsive Design</li>
+                        <li>API Integration</li>
+                        <li>Full Stack Development</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>UNIX/Linux</li>
+                        <li>Vercel</li>
+                        <li>REST APIs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        
+        <div class="about-content">
+            <div>
+                <p>I'm a passionate <span class="about-highlight">full-stack developer</span> with a strong focus on artificial intelligence and machine learning. With expertise spanning from frontend web development to advanced AI implementations, I create innovative solutions that bridge the gap between user experience and intelligent systems.</p>
+                
+                <p>My projects range from <span class="about-highlight">real-time web applications</span> like weather and e-commerce platforms to cutting-edge <span class="about-highlight">AI systems</span> including image captioning and facial recognition technologies.</p>
+                
+                <p>I'm driven by the challenge of solving complex problems through clean, efficient code and modern development practices. When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or learning the latest trends in AI and web development.</p>
+            </div>
+
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); padding: 2rem; border-radius: 0.75rem; height: fit-content;">
+                <h3 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Quick Facts</h3>
+                <ul class="skill-list" style="gap: 1rem; display: flex; flex-direction: column;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Location:</strong> Available Globally</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Current Focus:</strong> AI & Full-Stack Development</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Experience:</strong> Multiple AI and Web Projects</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Open To:</strong> Collaborations & Opportunities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 class="section-title">Let's Connect</h2>
+        <p style="color: #a0a0a0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;">
+            I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+        </p>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://github.com/LithinAdari" class="btn btn-primary" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/lithin-adari/" class="btn btn-secondary" target="_blank">LinkedIn</a>
+            <a href="mailto:lithin.adari@example.com" class="btn btn-secondary">Email</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 LithinAdari. All rights reserved.</p>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Built with passion using HTML, CSS, and JavaScript</p>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Add scroll animation for project cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideIn 0.6s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
